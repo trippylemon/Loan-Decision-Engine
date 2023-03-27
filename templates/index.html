@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Loan Decision Engine</title>
+     <link rel="stylesheet" href="static/css/style.css"> 
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <p class="flash-messages">
+          {{ messages[0] }}
+      </p>
+    {% endif %}
+  {% endwith %}
+    <h1>Loan Decision Engine</h1>
+    <form id="loan-form" action="/" method="POST">
+      <div>
+        <label for="personal-code">Personal Code:</label>
+        <input type="text" id="personal-code" name="personal-code" required maxLength = "8">
+      </div>
+      <div>
+        <label for="loan-amount">Loan Amount (€):</label>
+        <input type="text" id="loan-amount" name="loan-amount" min="2000" max="10000" required maxLength = "5">
+      </div>
+      <div>
+        <label for="loan-period">Loan Period (months):</label>
+        <input type="text" id="loan-period" name="loan-period" min="12" max="60" required maxLength = "2">
+      </div>
+      <button type="submit" id="submit-btn" name="submit-btn">Submit</button>
+    </form>
+    <div id="data-container">
+    </div>
+  </body>
+</html>
