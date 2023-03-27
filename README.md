@@ -6,4 +6,4 @@ When main.py is run and the website on localhost is open, the user is expected t
 
 When user presses submit, a return message is shown with the best solution for user's loan:
 
-!![Cannot upload output example](output.png)
+![Cannot upload output example](output.png)
