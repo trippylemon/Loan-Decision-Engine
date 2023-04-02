@@ -17,7 +17,14 @@ def index():
       if (isDigit(personalID) and isDigit(loanAmount) and isDigit(loanPeriod)):
          isNumber = True
       if isNumber:
+         # calculate creditModifier
          creditModifier = calculateCreditModifier(int(personalID))
+         # check for valid input for Loan Amount
+         if (int(loanAmount) < 2000 or int(loanAmount) > 10000):
+            flash("Loan amount has to be between 2000 and 10000 inclusive. Please try again!")
+         # check for valid input for Loan Period
+         if (int(loanPeriod) < 12 or int(loanPeriod) > 60):
+            flash("Loan period has to be between 12 and 60 months inclusive. Please try again!")
          bestLoanAmount, bestLoanPeriod = BestDeal(creditModifier, int(loanAmount), int(loanPeriod))
          # Display the result
          # If the user is not eligible for a loan, corresponding message will be displayed
